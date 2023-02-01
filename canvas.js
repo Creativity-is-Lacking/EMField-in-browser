@@ -15,7 +15,7 @@ addEventListener("resize", (event) => {
 });
 
 $(document).ready(function(){
-  let c = new chargeCircle;
+  let c = new chargeCircle(0,c.width/2,c.height/2,5);
   charges.push(c)
 });
 
@@ -27,11 +27,9 @@ function renderObjs() {
   }
 }
 
-function circleCharge(id,x,y,w,h,charge){
+function circleCharge(id,x,y,charge){
   this.x = x;
   this.y = y;
-  this.w = w;
-  this.h = h;
   this.charge = charge;
   this.id = id;
   this.draw = function(){
