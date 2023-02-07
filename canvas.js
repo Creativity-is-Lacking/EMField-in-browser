@@ -9,8 +9,6 @@ var charges = new Array();
 addEventListener("resize", (event) => {
   canvas.height = window.innerHeight;
   canvas.width = window.innerWidth;
-  ocan.height = canvas.height;
-  ocan.width = canvas.width;
   renderObjs();
 });
 
@@ -20,7 +18,6 @@ $(document).ready(function(){
 });
 
 function renderObjs() {
-  oc.clearRect(0,0,ocan.width,ocan.height);
   c.clearRect(0,0,canvas.width,canvas.height);
   for(var i=0;i<charges.length;i++){
     charges[i].draw();
