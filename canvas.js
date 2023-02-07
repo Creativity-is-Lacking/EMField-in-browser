@@ -13,7 +13,7 @@ addEventListener("resize", (event) => {
 });
 
 $(document).ready(function(){
-  let circ = new circleCharge(0,c.width/2,c.height/2,5);
+  let circ = new circleCharge(0,canvas.width/2,canvas.height/2,5);
   charges.push(circ)
 });
 
@@ -31,7 +31,7 @@ function circleCharge(id,x,y,charge){
   this.id = id;
   this.draw = function(){
     c.beginPath();
-    c.arc(x,y,5,0,2*Math.PI, false);
+    c.arc(x,y,15,0,2*Math.PI, false);
     c.fillStyle = 'rgb(0,0,0)';
     c.fill();
   }
