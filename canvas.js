@@ -32,7 +32,7 @@ function circleCharge(id,x,y,charge){
   this.draw = function(){
     c.beginPath();
     c.arc(x,y,5,0,2*Math.PI, false);
-    c.fillStyle = rgb(0,0,0);
+    c.fillStyle = 'rgb(0,0,0)';
     c.fill();
   }
 }
