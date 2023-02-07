@@ -15,7 +15,7 @@ addEventListener("resize", (event) => {
 });
 
 $(document).ready(function(){
-  let c = new chargeCircle(0,c.width/2,c.height/2,5);
+  let c = new circleCharge(0,c.width/2,c.height/2,5);
   charges.push(c)
 });
 
