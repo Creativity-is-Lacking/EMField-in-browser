@@ -1,13 +1,13 @@
 var canvas = document.getElementById('cvs');
 var c = canvas.getContext('2d');
-canvas.height = window.innerHeight - document.getElementsByClassName("nav-ul")[0].clientHeight;
+canvas.height = window.innerHeight;
 canvas.width = window.innerWidth;
 var offx = canvas.offsetLeft;
 var offy = canvas.offsetTop;
 var charges = new Array();
 
 addEventListener("resize", (event) => {
-  canvas.height = window.innerHeight - document.getElementsByClassName("nav-ul")[0].clientHeight;
+  canvas.height = window.innerHeight;
   canvas.width = window.innerWidth;
   ocan.height = canvas.height;
   ocan.width = canvas.width;
