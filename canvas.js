@@ -40,26 +40,7 @@ function circleCharge(id,x,y,charge){
   }
 }
 
-function createNdArray(length) {
-    var arr = new Array(length || 0),
-        i = length;
-
-    if (arguments.length > 1) {
-        var args = Array.prototype.slice.call(arguments, 1);
-        while(i--) arr[length-1 - i] = createNdArray.apply(this, args);
-    }
-
-    return arr;
-}
-
-function Efield(width, height){
-  this.width = width;
-  this.height = height;
-  this.fieldMagnitude = createNdArray(width, height);
-}
-
 function shadeField(){
-  var field = new Efield(canvas.width,canvas.height);
   for(let x = 0; x < canvas.width; x++){
     for(let y = 0; y < canvas.height; y++){
       let fieldAtPoint = 0;
@@ -67,10 +48,9 @@ function shadeField(){
         let r = Math.sqrt((x-charges[i].x)**2 + (y-charges[i].y)**2);
         fieldAtPoint += (charges[i].charge/(4*Math.PI*e_0*(r**2)));
       }
-      //console.log("E-field is " + fieldAtPoint + " at point (" + x + ", " + y + ")");
-      field.fieldMagnitude[x][y] = fieldAtPoint;
+      var hue = (x/(5000/320))%320
+      c.fillStyle = "hsv("+hue+",100, 100)";
+      c.fillRect(x, y, 1, 1 );
     }
   }
-  //drawpoints and map colors
-  return field;
 }
