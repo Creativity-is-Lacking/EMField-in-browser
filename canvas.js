@@ -40,11 +40,22 @@ function circleCharge(id,x,y,charge){
   }
 }
 
+function createNdArray(length) {
+    var arr = new Array(length || 0),
+        i = length;
+
+    if (arguments.length > 1) {
+        var args = Array.prototype.slice.call(arguments, 1);
+        while(i--) arr[length-1 - i] = createArray.apply(this, args);
+    }
+
+    return arr;
+}
+
 function Efield(width, height){
   this.width = width;
   this.height = height;
-  //magnitude is ordered by increasing x by increasing y. see impl
-  this.fieldMagnitude = new Array(width + height);
+  this.fieldMagnitude = createNdArray(width, height);
 }
 
 function shadeField(){
@@ -57,7 +68,7 @@ function shadeField(){
         fieldAtPoint += (charges[i].charge/(4*Math.PI*e_0*(r**2)));
       }
       //console.log("E-field is " + fieldAtPoint + " at point (" + x + ", " + y + ")");
-      field.fieldMagnitude[x + y] = fieldAtPoint;
+      field.fieldMagnitude[x][y] = fieldAtPoint;
     }
   }
   //drawpoints and map colors
