@@ -40,7 +40,15 @@ function circleCharge(id,x,y,charge){
   }
 }
 
+function Efield(width, height){
+  this.width = width;
+  this.height = height;
+  //magnitude is ordered by increasing x by increasing y. see impl
+  this.fieldMagnitute = new Array(width + height);
+}
+
 function shadeField(){
+  var field = new Efield(canvas.width,canvas.height);
   for(let x = 0; x < canvas.width; x++){
     for(let y = 0; y < canvas.height; y++){
       let fieldAtPoint = 0;
@@ -48,7 +56,10 @@ function shadeField(){
         let r = Math.sqrt((x-charges[i].x)**2 + (y-charges[i].y)**2);
         fieldAtPoint += (charges[i].charge/(4*Math.PI*e_0*(r**2)));
       }
-      console.log("E-field is " + fieldAtPoint + " at point (" + x + ", " + y + ")");
+      //console.log("E-field is " + fieldAtPoint + " at point (" + x + ", " + y + ")");
+      field.fieldMagnitude[x + y] = fieldAtPoint;
     }
   }
+  //drawpoints and map colors
+  return field;
 }
