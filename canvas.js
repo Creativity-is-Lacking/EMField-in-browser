@@ -45,7 +45,7 @@ function shadeField(){
   for(let i = 0; i < charges.length; i++){
     totalCharge += charges[i].charge;
   }
-  let fakemin = (totalCharge/(4*Math.PI*e_0*(900**2)));
+  let fakemin = (totalCharge/(4*Math.PI*e_0*(2700**2)));
   for(let x = 0; x < canvas.width; x++){
     for(let y = 0; y < canvas.height; y++){
       let fieldAtPoint = 0;
