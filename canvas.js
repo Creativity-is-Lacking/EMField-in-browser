@@ -44,7 +44,7 @@ function shadeField(){
     for(let y = 0; y < canvas.height; y++){
       let fieldAtPoint = 0;
       for(let i = 0; i < charges.length; i++){
-        let r = sqrt((x-charges[i].x)**2 + (y-charges[i].y)**2);
+        let r = Math.sqrt((x-charges[i].x)**2 + (y-charges[i].y)**2);
         fieldAtPoint += (charges[i]/(4*Math.PI*8.854187817*(10**-12)));
       }
       console.log("E-field is " + fieldAtPoint + " at point (" + x + ", " + y + ")");
