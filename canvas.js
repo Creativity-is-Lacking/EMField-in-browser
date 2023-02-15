@@ -41,6 +41,11 @@ function circleCharge(id,x,y,charge){
 }
 
 function shadeField(){
+  let totalCharge = 0;
+  for(let i = 0; i < charges.length; i++){
+    totalCharge += charges[i].charge;
+  }
+  let fakemax = (totalCharge/(4*Math.PI*e_0*(0.1**2)));
   for(let x = 0; x < canvas.width; x++){
     for(let y = 0; y < canvas.height; y++){
       let fieldAtPoint = 0;
@@ -48,7 +53,7 @@ function shadeField(){
         let r = Math.sqrt((x-charges[i].x)**2 + (y-charges[i].y)**2);
         fieldAtPoint += (charges[i].charge/(4*Math.PI*e_0*(r**2)));
       }
-      var hue = (fieldAtPoint/(900000))%320
+      var hue = (fieldAtPoint/(fakemax))%320
       c.fillStyle = "hsl("+hue+",100%, 50%)";
       c.fillRect(x, y, 1, 1 );
     }
