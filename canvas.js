@@ -48,7 +48,7 @@ function shadeField(){
         let r = Math.sqrt((x-charges[i].x)**2 + (y-charges[i].y)**2);
         fieldAtPoint += (charges[i].charge/(4*Math.PI*e_0*(r**2)));
       }
-      var hue = (x/(254/320))%320
+      var hue = (fieldAtPoint/(254/320))%320
       c.fillStyle = "hsv("+hue+",100, 100)";
       c.fillRect(x, y, 1, 1 );
     }
