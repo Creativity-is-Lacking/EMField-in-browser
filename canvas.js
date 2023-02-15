@@ -44,7 +44,7 @@ function Efield(width, height){
   this.width = width;
   this.height = height;
   //magnitude is ordered by increasing x by increasing y. see impl
-  this.fieldMagnitute = new Array(width + height);
+  this.fieldMagnitude = new Array(width + height);
 }
 
 function shadeField(){
