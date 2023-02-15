@@ -6,6 +6,7 @@ canvas.style.width = "100%";
 canvas.style.height = "100%";
 var offx = canvas.offsetLeft;
 var offy = canvas.offsetTop;
+var e_0 = 8.854187817*(10**-12);
 var charges = new Array();
 
 addEventListener("resize", (event) => {
@@ -45,7 +46,7 @@ function shadeField(){
       let fieldAtPoint = 0;
       for(let i = 0; i < charges.length; i++){
         let r = Math.sqrt((x-charges[i].x)**2 + (y-charges[i].y)**2);
-        fieldAtPoint += (charges[i]/(4*Math.PI*8.854187817*(10**-12)));
+        fieldAtPoint += (charges[i].charge/(4*Math.PI*e_0*(r**2)));
       }
       console.log("E-field is " + fieldAtPoint + " at point (" + x + ", " + y + ")");
     }
