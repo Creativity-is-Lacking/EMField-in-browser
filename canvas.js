@@ -74,10 +74,10 @@ function shadeField(){
   }
   let max = Math.max(...tempmaxarray);
   let min = Math.min(...tempminarray);
-  console.log("max: " + max + ", min: " + min);
   for(let x = 0; x < canvas.width; x++){
     for(let y = 0; y < canvas.height; y++){
       var hue = (255*(field[x][y]-min))/(max-min)
+      console.log("hue: " + hue);
       c.fillStyle = "rgb("+hue+",0, 0)";
       c.fillRect(x, y, 1, 1 );
     }
