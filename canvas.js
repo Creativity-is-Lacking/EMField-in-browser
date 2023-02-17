@@ -70,13 +70,10 @@ function shadeField(){
   let tempminarray = new Array();
   for(let x = 0; x < canvas.width; x++){
     tempmaxarray[x] = Math.max(...field[x]);
-    console.log(tempmaxarray[x]);
     tempminarray[x] = Math.min(...field[x]);
   }
-  let max = Math.max(tempmaxarray);
-  let min = Math.min(tempminarray);
-  //console.log(field);
-  //console.log("max: " + max + ", min: " + min);
+  let max = Math.max(...tempmaxarray);
+  let min = Math.min(...tempminarray);
   for(let x = 0; x < canvas.width; x++){
     for(let y = 0; y < canvas.height; y++){
       var hue = (255*(field[x][y]-min))/(max-min)
