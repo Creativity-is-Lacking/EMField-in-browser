@@ -69,8 +69,10 @@ function shadeField(){
   let tempmaxarray = new Array();
   let tempminarray = new Array();
   for(let x = 0; x < canvas.width; x++){
+    console.log(field[x]);
     tempmaxarray[x] = Math.max(field[x]);
     tempminarray[x] = Math.min(field[x]);
+    console.log("max contender: " + tempmaxarray[x] + ", min contender: " + tempminarray);
   }
   let max = Math.max(tempmaxarray);
   let min = Math.min(tempminarray);
